@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Валентинка</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+video {
+    width: 70vw;
+    max-width: 300px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 6vw;
+    margin-bottom: 20px;
+    color: #ff4e50;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 5vw;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#yes {
+    background: #ff4e50;
+    color: white;
+}
+
+#no {
+    background: white;
+    color: #ff4e50;
+}
+</style>
+</head>
+<body>
+
+<video id="video" autoplay loop muted>
+  <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  Ваш браузер не поддерживает видео.
+</video>
+
+
+
+<div class="screen" id="screen2">
+    <h1 id="questionText">Будешь моей валентинкой?💗💗💗</h1>
+    <div class="buttons">
+        <button id="yesBtn">Да</button>
+        <button id="noBtn">Нет</button>
+    </div>
+</div>
+
+<div class="screen" id="screen3">
+    <video id="video1" src="minion.mp4" autoplay muted playsinline></video>
+    <video id="video2" src="firework.mp4" muted playsinline></video>
+</div>
+
+<script>
+const yesBtn = document.getElementById('yes');
+const noBtn = document.getElementById('no');
+const text = document.getElementById('text');
+
+function noClick() {
+    // увеличиваем кнопку Да при нажатии Нет
+    let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
+    yesBtn.style.fontSize = (currentSize + 3) + "px";
+}
+
+function yesClick() {
+    // меняем текст на Ура!
+    text.innerText = "УРАААААААА!!!!!";
+    text.style.transform = "scale(1.2)";
+    setTimeout(() => { text.style.transform = "scale(1)"; }, 300);
+}
+</script>
+
+</body>
+</html>
