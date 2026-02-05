@@ -80,29 +80,41 @@ const video1 = document.getElementById('video1');
 const video2 = document.getElementById('video2');
 const buttonsDiv = document.getElementById('buttonsDiv');
 
+let noClickCount = 0; // счетчик нажатий "Нет"
+
 noBtn.addEventListener('click', () => {
-    // увеличиваем кнопку Да при нажатии Нет
+    noClickCount++; // увеличиваем счётчик
+
+    // увеличиваем кнопку Да
     let currentSize = parseInt(window.getComputedStyle(yesBtn).fontSize);
     yesBtn.style.fontSize = (currentSize + 16) + "px";
+
+    // на 5 нажатии меняем текст кнопки
+    if (noClickCount === 5) {
+        noBtn.innerText = "😭😭😭";
+    }
+
+    // на 8 можно ещё жёстче 😈
+    if (noClickCount === 8) {
+        noBtn.innerText = "Ну пожааалуйста 🥺";
+    }
 });
 
 yesBtn.addEventListener('click', () => {
-    // меняем текст
     questionText.innerText = "УРАААААААА!!!!!";
     questionText.style.transform = "scale(1.2)";
     setTimeout(() => { questionText.style.transform = "scale(1)"; }, 300);
 
-    // скрываем первое видео и показываем второе
     video1.style.display = "none";
     video2.style.display = "block";
-
-    // скрываем кнопки
     buttonsDiv.style.display = "none";
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 
